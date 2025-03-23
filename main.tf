@@ -10,14 +10,14 @@ terraform {
 provider "google" {
   # Configuration options
   region = "us-central1"
-  project = "thisismustafar"
+  project = "gcp-cw-project-453819"
   zone = "us-central1-a"
-  credentials = "thisismustafar-98bc057b15db.json"
+  credentials = "gcp-cw-project-453819-a130e8726b46.json"
 
 }
 
 resource "google_storage_bucket" "bucket1" {
-  name          = "copy_this_and_chewbacca_will_raw_wookie_you_no_diddy"
+  name          = "gcps3bucket1"
   location      = "us-central1"
   force_destroy = true
 
@@ -32,7 +32,7 @@ resource "google_compute_network" "auto-vpc-tf" {
 resource "google_compute_subnetwork" "sub-sg" {
   name ="sub-sg"
   network = google_compute_network.auto-vpc-tf.id
-  ip_cidr_range = "10.72.1.0/24"
+  ip_cidr_range = "10.190.1.0/24"
   region = "asia-northeast1"
 }
 
